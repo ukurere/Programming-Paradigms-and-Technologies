@@ -1,8 +1,8 @@
-:- consult('Task-3.1.pl').
+:- consult('Task-2.pl').
 :- initialization(main, main).
 
 main :-
-    write('Тест 1 (легкий): приклад з умови задачі'), nl,
+    write('Test 1 (easy): example from the task'), nl,
     split_peaks([5,4,2,8,3,1,2,6,9,5], R),
-    write('Результат:   '), write(R), nl,
-    write('Очікується:  [[5],[4,2,8],[3,1,2,6,9],[5]]'), nl.
+    write('Result:   '), write(R), nl,
+    write('Expected: [[5],[4,2,8],[3,1,2,6,9],[5]]'), nl.

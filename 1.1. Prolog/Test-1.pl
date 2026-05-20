@@ -2,7 +2,7 @@
 :- initialization(main, main).
 
 main :-
-    write('Тест 1 (легкий): базовий випадок'), nl,
+    write('Test 1 (easy): basic case'), nl,
     remove_twice([1,2,3,4,5], [1,1,2,3,3,4], R),
-    write('Результат:  '), write(R), nl,
-    write('Очікується: [2,4,5]'), nl.
+    write('Result:   '), write(R), nl,
+    write('Expected: [2,4,5]'), nl.

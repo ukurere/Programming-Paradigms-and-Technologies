@@ -1,9 +1,17 @@
-import Task21
+import System.IO
+
+isPow2 :: Int -> Bool
+isPow2 1 = True
+isPow2 n = n > 0 && even n && isPow2 (n `div` 2)
+
+splitPow2 :: [Int] -> ([Int], [Int])
+splitPow2 xs = (filter isPow2 xs, filter (not . isPow2) xs)
 
 main :: IO ()
 main = do
-    putStrLn "Тест 1 (легкий): базовий випадок"
+    hSetEncoding stdout utf8
+    putStrLn "Test 1 (easy): basic case"
     let xs = [1,2,3,4,5,6,7,8]
-    putStrLn $ "Список:          " ++ show xs
-    putStrLn $ "Результат:       " ++ show (splitPow2 xs)
-    putStrLn   "Очікується:      ([1,2,4,8],[3,5,6,7])"
+    putStrLn $ "List:       " ++ show xs
+    putStrLn $ "Result:     " ++ show (splitPow2 xs)
+    putStrLn   "Expected:   ([1,2,4,8],[3,5,6,7])"

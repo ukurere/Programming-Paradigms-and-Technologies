@@ -2,7 +2,7 @@
 :- initialization(main, main).
 
 main :-
-    write('Тест 4 (важкий): елемент тричі у другому — не вилучається'), nl,
+    write('Test 4 (hard): element 3 times in second - not removed'), nl,
     remove_twice([1,2,3,4], [1,1,1,2,2,3,3,3], R),
-    write('Результат:  '), write(R), nl,
-    write('Очікується: [1,3,4]'), nl.
+    write('Result:   '), write(R), nl,
+    write('Expected: [1,3,4]'), nl.

@@ -1,11 +1,18 @@
-import Task11
+import System.IO
+
+countOcc :: Eq a => a -> [a] -> Int
+countOcc x = length . filter (== x)
+
+removeIfTwice :: Eq a => [a] -> [a] -> [a]
+removeIfTwice list1 list2 = filter (\x -> countOcc x list2 /= 2) list1
 
 main :: IO ()
 main = do
-    putStrLn "Тест 4 (важкий): елемент тричі у другому списку — не вилучається"
+    hSetEncoding stdout utf8
+    putStrLn "Test 4 (hard): element 3 times in second list - not removed"
     let l1 = [1,2,3,4]
         l2 = [1,1,1,2,2,3,3,3]
-    putStrLn $ "Список 1:    " ++ show l1
-    putStrLn $ "Список 2:    " ++ show l2
-    putStrLn $ "Результат:   " ++ show (removeIfTwice l1 l2)
-    putStrLn   "Очікується:  [1,3,4]"
+    putStrLn $ "List 1:     " ++ show l1
+    putStrLn $ "List 2:     " ++ show l2
+    putStrLn $ "Result:     " ++ show (removeIfTwice l1 l2)
+    putStrLn   "Expected:   [1,3,4]"

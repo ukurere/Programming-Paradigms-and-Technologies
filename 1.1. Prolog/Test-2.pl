@@ -2,7 +2,7 @@
 :- initialization(main, main).
 
 main :-
-    write('Тест 2 (легкий): порожній перший список'), nl,
+    write('Test 2 (easy): empty first list'), nl,
     remove_twice([], [1,1,2,2,3], R),
-    write('Результат:  '), write(R), nl,
-    write('Очікується: []'), nl.
+    write('Result:   '), write(R), nl,
+    write('Expected: []'), nl.

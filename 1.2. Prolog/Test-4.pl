@@ -1,9 +1,9 @@
-:- consult('Task-2.1.pl').
+:- consult('Task-1.2.pl').
 :- initialization(main, main).
 
 main :-
-    write('Тест 4 (важкий): великі степені двійки серед інших чисел'), nl,
+    write('Test 4 (hard): large powers of 2 among other numbers'), nl,
     split_pow2([64,100,128,200,256], Pow, NotPow),
-    write('Степені 2:   '), write(Pow), nl,
-    write('Інші:        '), write(NotPow), nl,
-    write('Очікується:  [64,128,256] та [100,200]'), nl.
+    write('Powers of 2: '), write(Pow), nl,
+    write('Others:      '), write(NotPow), nl,
+    write('Expected:    [64,128,256] and [100,200]'), nl.

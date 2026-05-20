@@ -1,9 +1,25 @@
-import Task31
+import System.IO
+
+splitAtPeaks :: Ord a => [a] -> [[a]]
+splitAtPeaks [] = []
+splitAtPeaks [x] = [[x]]
+splitAtPeaks xs = splitBy xs peakIdxs
+  where
+    n = length xs
+    peakIdxs = [i | i <- [0..n-1], isPeak i]
+    isPeak 0      = xs !! 0 > xs !! 1
+    isPeak i
+      | i == n-1  = xs !! i > xs !! (i-1)
+      | otherwise = xs !! i > xs !! (i-1) && xs !! i > xs !! (i+1)
+    splitBy ys [] = [ys]
+    splitBy ys (p:ps) =
+      take (p+1) ys : splitBy (drop (p+1) ys) (map (subtract (p+1)) ps)
 
 main :: IO ()
 main = do
-    putStrLn "Тест 3 (важкий): два піки — три підсписки"
+    hSetEncoding stdout utf8
+    putStrLn "Test 3 (hard): two peaks - three sublists"
     let xs = [1,5,2,4,3 :: Int]
-    putStrLn $ "Список:      " ++ show xs
-    putStrLn $ "Результат:   " ++ show (splitAtPeaks xs)
-    putStrLn   "Очікується:  [[1,5],[2,4],[3]]"
+    putStrLn $ "List:       " ++ show xs
+    putStrLn $ "Result:     " ++ show (splitAtPeaks xs)
+    putStrLn   "Expected:   [[1,5],[2,4],[3]]"
