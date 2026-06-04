@@ -41,6 +41,5 @@ comp2Do x = do
   b <- u2 x
   v a b
 
--- Without do-notation (using >>=)
 comp2Bind :: Double -> Maybe Double
 comp2Bind x = u1 x >>= \a -> u2 x >>= \b -> v a b
